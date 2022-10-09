@@ -17,6 +17,7 @@ from torch.utils.data import Dataset
 #prepare snippets of input frames for each video segment.
 class Coseg_Dataset(Dataset):
     def __init__(self, dataset_dir,params,transform,study_length):
+        super(Coseg_Dataset, self).__init__()
         listfiles=os.listdir(dataset_dir)
         self.segment_list=[]
         self.end_point=set()

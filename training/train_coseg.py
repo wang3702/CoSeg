@@ -16,6 +16,7 @@ def train_coseg(data_path, params):
     random.seed(params['seed'])
     torch.manual_seed(params['seed'])
     np.random.seed(params['seed'])
+    torch.cuda.manual_seed_all(params['seed'])
 
     # confim log path
     log_path, result_path = init_log_path(params)

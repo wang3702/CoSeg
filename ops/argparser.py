@@ -9,13 +9,16 @@ import argparse
 
 def argparser():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--mode',type=int,default=0,help="0: training mode; 1: inference mode")
+    parser.add_argument('--mode',type=int,default=0,help="0: data pre-processing mode; \n"
+                                                         "1: training mode;\n "
+                                                         "2: inference mode")
     #configure training param settings
     parser.add_argument('-F',type=str, required=True,help='dataset directory path')
     parser.add_argument('-M', type=str,default='Train_Model', help='model path for evluation and the path to save model')
     parser.add_argument('--resume', type=int, default=0, help='reload trained model to continue training')
 
-    parser.add_argument('--dataset',type=str,default='B',help="Dataset name: B:breakfast dataset; ")
+    parser.add_argument('--dataset',type=str,default='B',help="Dataset name: \n B:breakfast dataset;\n"
+                                                              "S: 50 Salads dataset;\n I: INRIA dataset ")
 
     parser.add_argument('--start_epoch', default=0, type=int, help='startring epoch for resuming situation')
     parser.add_argument('--epochs', default=30, type=int,help='number of total epochs to run')
