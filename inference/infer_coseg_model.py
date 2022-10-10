@@ -12,6 +12,7 @@ from inference.infer_utils import init_log_path
 from inference.encode_video_feature import encode_video_feature
 from data_processing.build_dataloader import build_infer_loader
 from data_processing.Feature_Dataset_Mask import Feature_Dataset_Mask
+from inference.Predict_Boundary import Predict_Boundary
 def infer_coseg_model(data_path, params):
     #init path to save output results
     save_path = init_log_path(params)
@@ -71,10 +72,12 @@ def infer_coseg_model(data_path, params):
         from inference.gen_coseg_mse import gen_coseg_mse
         with torch.no_grad():
             gen_coseg_mse(mse_path, dataloader, Bert_Model,
-                         use_cuda, params['batch_size'], n_channels,
-                          params, Video_Refer_Dict,params['study_length'])
+                          params['batch_size'], n_channels,
+                          params, Video_Refer_Dict,params['mask_length'])
 
 
+    #make event boundary predictions
+    Predict_Boundary(mse_path, params['smooth_factor'], params['range'])
 
 
 

@@ -2,3 +2,4 @@ torch
 Pillow
 tensorboardX
 opencv-python
+scipy

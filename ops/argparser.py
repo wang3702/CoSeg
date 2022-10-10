@@ -50,6 +50,11 @@ def argparser():
 
     parser.add_argument('--beta',default=1,type=float,help="coefficient to balance contrastive loss and reconstruction loss")
 
+    #configure the error detection module
+    #please do a search for different dataset
+    parser.add_argument("--smooth_factor",default=10,type=int,help="smooth factor for error detection module")
+    parser.add_argument("--range",default=70,type=int,help="range parameter M for boundary detection module")
+
     parser.add_argument('--tensorboard',default=0,type=int,help="use tensorboard to record logs or not")
 
     args = parser.parse_args()
