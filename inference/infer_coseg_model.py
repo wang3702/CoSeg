@@ -13,6 +13,7 @@ from inference.encode_video_feature import encode_video_feature
 from data_processing.build_dataloader import build_infer_loader
 from data_processing.Feature_Dataset_Mask import Feature_Dataset_Mask
 from inference.Predict_Boundary import Predict_Boundary
+import time
 def infer_coseg_model(data_path, params):
     #init path to save output results
     save_path = init_log_path(params)
@@ -37,7 +38,7 @@ def infer_coseg_model(data_path, params):
         print("feature model loading msg:", msg)
 
     #run feature encodings first to save time for later processes
-
+    start_time = time.time()
     feature_model.eval()
     feature_path = os.path.join(save_path, "Contrastive_Feature.npy")
     Video_Refer_Dict = loader.dataset.Refer_Video_Dict
@@ -78,6 +79,8 @@ def infer_coseg_model(data_path, params):
 
     #make event boundary predictions
     Predict_Boundary(mse_path, params['smooth_factor'], params['range'])
+    end_time = time.time()
+    print("Runnint time is ",end_time-start_time)
 
 
 
