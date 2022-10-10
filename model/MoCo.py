@@ -11,7 +11,7 @@ class MoCo(nn.Module):
     Build a MoCo model with: a query encoder, a key encoder, and a queue
     https://arxiv.org/abs/1911.05722
     """
-    def __init__(self, model='resnet18',dim=512, K=65536, m=0.999, T=0.2, pretrained=True):
+    def __init__(self, model='resnet18',dim=512, K=65536, m=0.999, T=0.2, pretrained=False):
         """
         dim: feature dimension (default: 128)
         K: queue size; number of negative keys (default: 65536)
