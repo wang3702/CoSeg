@@ -5,7 +5,6 @@ import time
 def init_log_path(params):
     learning_rate = params['lr']
     weight_decay = params['weight_decay']
-    type = params['type']
     log_path= os.path.join(os.getcwd(), params['log_path'])
     mkdir(log_path)
     dataset_name=params['dataset']
