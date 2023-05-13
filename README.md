@@ -133,11 +133,12 @@ python3 main.py --mode=2 -F=[frame_dataset_dir] --dataset=[dataset_type] \
 
 ## Citation:
 [CoSeg: Cognitively Inspired Unsupervised Generic Event Segmentation](https://arxiv.org/pdf/2109.15170.pdf).  
+[CoSeg: Cognitively Inspired Unsupervised Generic Event Segmentation](https://doi.org/10.1109/TNNLS.2023.3263387)
 ```
 @article{wang2022coseg,
   title={CoSeg: Cognitively Inspired Unsupervised Generic Event Segmentation},
   author={Wang, Xiao and Liu, Jingen and Mei, Tao and Luo, Jiebo},
-  journal={IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS (minor revision)},
+  journal={IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS},
   year={2022}
 }
 ```
