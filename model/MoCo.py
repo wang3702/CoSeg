@@ -168,6 +168,8 @@ class MoCo(nn.Module):
         q = self.encoder_q(im_q)  # queries: NxC
         q = nn.functional.normalize(q, dim=1)
         batch_size = q.size(0)
+
+        im_k_original = im_k
         # compute key features
         with torch.no_grad():  # no gradient to keys
             self._momentum_update_key_encoder()  # update the key encoder
@@ -203,7 +205,7 @@ class MoCo(nn.Module):
             return logits, labels
         elif type==1:
             with torch.no_grad():
-                k=self.encoder_k(im_k, use_feature=True)
+                k=self.encoder_k(im_k_original, use_feature=True)
             return k,logits,labels
 
 
