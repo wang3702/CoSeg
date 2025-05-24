@@ -69,5 +69,5 @@ def gen_coseg_mse(mse_path, dataloader, Bert_Model,
             tmp_path=os.path.join(mse_path,video_name+"_mse.txt")
             with open(tmp_path, 'a+') as file:
                 for k, tmp_mse in enumerate(tmp_mse_list):
-                    file.write('%d\t%.2f\n' % (current_index+k+1, tmp_mse))
+                    file.write('%d\t%.6f\n' % (current_index+k+1, tmp_mse))
                 file.flush()
